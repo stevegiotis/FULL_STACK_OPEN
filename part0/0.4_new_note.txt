@@ -1,0 +1,36 @@
+# https://www.websequencediagrams.com
+
+title 0.4: New note
+
+note over browser:
+user fills and submits the form
+end note
+
+note over browser:
+js-code handles the form submission
+by sending a request to the server
+using XHR
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: Redirect https://studies.cs.helsinki.fi/exampleapp/notes
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML document
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content":"hr","date":"2023-10-05T11:48:21.000Z"}, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
