@@ -1,5 +1,9 @@
 /* eslint-disable react/prop-types */
 
+const totalcss = {
+  fontWeight: 950,
+};
+
 const Header = (props) => {
   return (
     <h1>{props.course.name}</h1> // Access the course name using props
@@ -9,7 +13,7 @@ const Header = (props) => {
 const Part = (props) => {
   return (
     <p>
-      <strong>{props.part.name}:</strong> {props.part.exercises} exercises
+      <strong>{props.part.name} {props.part.exercises} </strong>
     </p>
   );
 };
@@ -29,7 +33,7 @@ const Total = (props) => {
 
   return (
     <p>
-      <strong>Exercises num:</strong> {totalExercises}
+      <p style={totalcss}>Total of {totalExercises} </p>
     </p>
   );
 };
@@ -50,6 +54,10 @@ const App = () => {
         name: "State of a component",
         exercises: 14,
       },
+      {
+        name:'Redux',
+        exercises: 11,
+      }
     ],
   };
 
