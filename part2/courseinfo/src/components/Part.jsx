@@ -1,10 +1,8 @@
-const Part = (props) => {
-	return (
-		<p>
-			<strong>{props.name}: </strong>
-			{props.exercises} Exercises
-		</p>
-	);
-};
+/* eslint-disable react/prop-types */
 
-export default Part;
+const Part = ({part, exercises}) =>
+  <p>
+    {part} {exercises}
+  </p>
+
+export default Part

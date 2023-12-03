@@ -1,21 +1,17 @@
-import Header from "./Header.jsx";
-import Content from "./Content.jsx";
-import Total from "./Total.jsx";
+/* eslint-disable react/prop-types */
+import Header from './Header'
+import Content from './Content'
+import Total from './Total'
 
-const Course = (props) => {
-	return (
-		<div>
-			{props.courses.map((course) => {
-				return (
-					<>
-						<Header courses={props.course} />
-						<Content courses={props.course} />
-						<Total courses={props.course} />
-					</>
-				);
-			})}
-		</div>
-	);
-};
+const Course = ({courses}) =>
+  <div>
+    {courses.map(course =>
+      <div key={course.id}>
+        <Header course={course.name} />
+        <Content parts={course.parts}/>
+        <Total parts={course.parts}/>
+      </div>
+    )}
+  </div>
 
 export default Course;

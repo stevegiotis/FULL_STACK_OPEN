@@ -1,9 +1,7 @@
-const Header = (props) => {
-	return (
-		<div className="header">
-			<h1>{props.courses.name}</h1>
-		</div>
-	);
-};
+/* eslint-disable react/prop-types */
+const Header = ({course}) =>
+  <h1>
+    {course}
+  </h1>
 
-export default Header;
+export default Header
