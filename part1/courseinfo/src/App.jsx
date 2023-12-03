@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react'; // Import React
 
 const Header = (props) => {
   return (
