@@ -2,6 +2,7 @@
 
 const totalcss = {
   fontWeight: 950,
+  fontSize: '1.1em',  
 };
 
 const Header = (props) => {
@@ -32,40 +33,66 @@ const Total = (props) => {
   const totalExercises = props.parts.reduce((acc, cur) => acc + cur.exercises, 0);
 
   return (
-    <p>
-      <p style={totalcss}>Total of {totalExercises} </p>
+    <p style={totalcss}>
+      Total of {totalExercises}
     </p>
   );
 };
 
 const App = () => {
-  const course = {
-    name: "Half Stack application development",
-    parts: [
-      {
-        name: "Fundamentals of React",
-        exercises: 10,
-      },
-      {
-        name: "Using props to pass data",
-        exercises: 7,
-      },
-      {
-        name: "State of a component",
-        exercises: 14,
-      },
-      {
-        name:'Redux',
-        exercises: 11,
-      }
-    ],
-  };
+  const course = [
+    {
+      name: 'Half Stack application development',
+      id: 1,
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    }, 
+    {
+      name: 'Node.js',
+      id: 2,
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
+        }
+      ]
+    }
+  ]
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      <Header course={course[0]} />
+      <Content parts={course[0].parts} />
+      <Total parts={course[0].parts} />
+      <Header course={course[1]} />
+      <Content parts={course[1].parts} />
+      <Total parts={course[1].parts} />
     </div>
   );
 };
