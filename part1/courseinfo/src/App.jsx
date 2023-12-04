@@ -1,26 +1,24 @@
 /* eslint-disable react/prop-types */
-// just the header
+
 const Header = (props) => {
-  console.log(props)
-  return (
-    <h1>
-      {props.course}
-    </h1>
-  );
+	return (
+		<div className="header">
+			<h1>{props.course}</h1>
+		</div>
+	);
 };
-//parts section 
+
 const Part = (props) => {
-  console.log(props)
-  return(
-    <p>
-      <strong>{props.part.name}</strong>
-      {props.part.exercises} exercises
-    </p>
-  )
-}
-// rendering all the parts into the Content component
+	return (
+		<p>
+			<strong>{props.part.name}: </strong>
+			{props.part.exercises} Exercises
+		</p>
+	);
+};
+
 const Content = (props) => {
-  return (
+	return (
 		<div>
 			<Part part={props.parts[0]} />
 			<Part part={props.parts[1]} />
@@ -30,21 +28,19 @@ const Content = (props) => {
 };
 
 const Total = (props) => {
-  return(
-    <p>
-      <strong>
-       Exercises num : 
-      </strong>
-      {props.parts.reduce((acc,cur) => 
-        acc + cur.exercises,0 // set 0 as deafult 
-      )
-      }
-    </p>
-    )
-}
+	return (
+		<p>
+			<strong>Number of Exercises: </strong>
+			{props.parts.reduce(
+				(accumulator, current) => accumulator + current.exercises,
+				0
+			)}
+		</p>
+	);
+};
 
 const App = () => {
-  const course = {
+	const course = {
 		name: "Half Stack application development",
 		parts: [
 			{
@@ -61,13 +57,13 @@ const App = () => {
 			},
 		],
 	};
-  return (
-    <div>
-      <Header course={course} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
-    </div>
-  )
-}
 
-export default App
+	return (
+		<div>
+			<Header course={course.name} />
+			<Content parts={course.parts} />
+			<Total parts={course.parts} />
+		</div>
+	);
+};
+export default App;
