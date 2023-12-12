@@ -1,5 +1,5 @@
 import { useState, useEffect  } from 'react'
-import personServices from './services/persons'
+import Services from './helper/persons'
 
 const Heading = ({text}) => {return (<h2>{text}</h2>)}
 
